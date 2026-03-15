@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1a1f36;
+  --color-navy-light: #252b48;
+  --color-navy-dark: #12162a;
+  --color-green-accent: #22c55e;
+  --color-green-accent-hover: #16a34a;
+  --color-green-light: #dcfce7;
+  --color-gray-warm: #f8f9fa;
+  --color-gray-border: #e5e7eb;
+  --color-text-primary: #1a1f36;
+  --color-text-secondary: #6b7280;
+  --color-text-light: #9ca3af;
+  --color-gold: #f59e0b;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Georgia", "Times New Roman", ui-serif, serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+}
+
+/* Custom slider styles */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: #e5e7eb;
+  outline: none;
+  transition: background 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #22c55e;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #22c55e;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Checkbox styles */
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.custom-checkbox:hover {
+  border-color: #22c55e;
+  background-color: #f0fdf4;
+}
+
+.custom-checkbox.selected {
+  border-color: #22c55e;
+  background-color: #f0fdf4;
+}
+
+/* Step transitions */
+.step-enter {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.step-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.3s ease;
+}
+
+/* Star rating */
+.star-filled {
+  color: #f59e0b;
+}
+
+.star-empty {
+  color: #e5e7eb;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes countUp {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-count {
+  animation: countUp 0.3s ease forwards;
+}
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+}
+
+.animate-pulse-green {
+  animation: pulse-green 2s infinite;
+}
